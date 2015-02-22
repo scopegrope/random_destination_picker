@@ -1,0 +1,49 @@
+<html metal:use-macro="main_template/macros/master">
+	<title metal:fill-slot="page_title">Matteorr Random Destination Picker</title>
+	<h1 metal:fill-slot="page_heading">Matteorr Random Destination Picker</h1>
+	<p metal:fill-slot="page_subheading">Below is a random destination based on your search criteria.</p>
+	<metal:pageContent fill-slot="content">
+		<div class="article">
+			<h2>
+				<span tal:replace="full_name">City Name</span>
+			</h2>
+			<ul>
+				<li>
+					<a href="#"
+					   tal:attributes="href string:https://www.google.com/search?q=${full_name}"
+					   target="_blank">
+						Show Google Results
+					</a>
+				</li>
+				<li>
+					<a href="#"
+					   tal:attributes="href string:http://en.wikipedia.org/w/index.php?search=${full_name}"
+					   target="_blank">
+						Show Wikipedia Results
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="toolbar">
+			<form action="pick_random_destination.py" method="post">
+				<input type="hidden"
+				       name="country"
+				       tal:condition="countryID|nothing"
+				       tal:attributes="value countryID|nothing">
+				<input type="submit" name="submit" value="Try another one">
+			</form>
+		</div>
+	</metal:pageContent>
+	<div metal:fill-slot="footer">Site © Scopegrope.com • <span title="See code comments for more information">Location data © Google.com</span>
+		<!--
+			Copyright information for the data used
+			Date:
+				2013-03-07
+			License:
+				Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License.
+			Google.com
+			https://developers.google.com/adwords/api/docs/appendix/geotargeting?csw=1
+		-->
+	</div>
+</html>
+

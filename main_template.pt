@@ -1,0 +1,28 @@
+<metal:page define-macro="master">
+<!DOCTYPE html>
+<html>
+	<head>
+		<title metal:define-slot="page_title">Matteorr Random Destination Picker</title>
+		<meta charset="utf-8">
+		<meta content="width=device-width, initial-scale=0.6666, maximum-scale=1.0, minimum-scale=0.6666" name="viewport">
+		<link rel="stylesheet" type="text/css" href="/static/cgi.css">
+		<metal:head define-slot="head_slot"></metal:head>
+	</head>
+	<body>
+		<div id="content_container">
+			<div id="page_heading_container">
+				<h1 metal:define-slot="page_heading">Matteorr Random Destination Picker</h1>
+				<p metal:define-slot="page_subheading"></p>
+			</div>
+			<div id="page_content">
+				<div metal:define-slot="content">Page Content</div>
+			</div>
+			<div id="page_footer_container">
+				<div id="page_footer">
+					<div metal:define-slot="footer">&copy;2014</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+</metal:page>

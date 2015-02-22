@@ -1,0 +1,35 @@
+<html metal:use-macro="main_template/macros/master">
+	<title metal:fill-slot="page_title">Matteorr Random Destination Picker</title>
+	<h1 metal:fill-slot="page_heading">Matteorr Random Destination Picker</h1>
+	<p metal:fill-slot="page_subheading">Choose the search criteria.</p>
+	<form action="pick_random_destination.py" method="post" metal:fill-slot="content">
+		<div class="article">
+			<h2>Search Criteria</h2>
+			<label for="select_country">Country:</label>
+			<select name="country" id="select_country">
+				<option value="">Any</option>
+				<tal:countries repeat="country countries">
+					<option tal:attributes="value country/id"
+					        tal:content="country/name">
+						Country Name
+					</option>
+				</tal:countries>
+			</select>
+		</div>
+		<div class="toolbar">
+			<input type="submit" name="submit" value="Submit"/>
+		</div>
+	</form>
+	<div metal:fill-slot="footer">Site © Scopegrope.com • <span title="See code comments for more information">Location data © Google.com</span>
+		<!--
+			Copyright information for the data used
+			Date:
+				2013-03-07
+			License:
+				Except as otherwise noted, the content of this page is licensed under the Creative Commons Attribution 3.0 License.
+			Google.com
+			https://developers.google.com/adwords/api/docs/appendix/geotargeting?csw=1
+		-->
+	</div>
+</html>
+
